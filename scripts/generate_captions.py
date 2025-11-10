@@ -37,7 +37,7 @@ def generate_captions_test(data_root="dataset/processed/test", output_csv="datas
     device = 0 if torch.cuda.is_available() else -1
     print(f"Using device: {'cuda' if device == 0 else 'cpu'}")
     print("Loading captioning model...")
-    caption_pipe = pipeline("image-to-text", model="Salesforce/blip-image-captioning-base", device=device)
+    caption_pipe = pipeline("image-to-text", model="Salesforce/blip-image-captioning-large", device=device)
 
     rows = []
     for label_dir in Path(data_root).iterdir():
