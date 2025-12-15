@@ -2,9 +2,9 @@ import os
 import shutil
 
 # Paths
-original_dataset = "/Users/naaisha/.cache/kagglehub/datasets/mostafaabla/garbage-classification/versions/1/garbage_classification"
+original_dataset = "/Users/naaisha/junior_year/mams/Com Sci/independentCSProject/recycleSorter/dataset/labelled_dataset"
 
-binary_dataset = "/Users/naaisha/junior_year/mams/Com Sci/independentCSProject/recyclingSorter/dataset/binary_dataset"
+binary_dataset = "/Users/naaisha/junior_year/mams/Com Sci/independentCSProject/recycleSorter/dataset/binary_dataset"
 
 # Define which folders go into which category
 recyclable_folders = ["paper", "cardboard", "metal", "green-glass", "brown-glass", "white-glass"]  # adjust as needed
