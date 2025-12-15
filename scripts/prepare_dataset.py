@@ -3,8 +3,8 @@ import shutil
 import random
 from pathlib import Path
 
-def prepare_dataset(data_root="dataset/labelled_dataset", output_root="dataset/processed", split_ratio=0.8):
-    categories = ["Recyclable", "Not_Recyclable"]
+def prepare_dataset(data_root="dataset/binary_dataset", output_root="dataset/processed", split_ratio=0.8):
+    categories = ["Not_Recyclable", "Recyclable"]
     os.makedirs(output_root, exist_ok=True)
 
     for cat in categories:
