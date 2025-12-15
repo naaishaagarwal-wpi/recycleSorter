@@ -1,2 +1,2 @@
-0: test
-1: train
+0: Not_Recyclable
+1: Recyclable
