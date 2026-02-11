@@ -2,17 +2,17 @@ import os
 import shutil
 
 # Paths
-original_dataset = "/Users/naaisha/junior_year/mams/Com Sci/independentCSProject/recycleSorter/dataset/labelled_dataset"
+original_dataset = "dataset/garbage_labelled"
 
 binary_dataset = "/Users/naaisha/junior_year/mams/Com Sci/independentCSProject/recycleSorter/dataset/binary_dataset"
 
 # Define which folders go into which category
-recyclable_folders = ["paper", "cardboard", "metal", "green-glass", "brown-glass", "white-glass"]  # adjust as needed
-not_recylable_folders = ["biological", "clothes", "shoes", "battery", "trash"]        # adjust as needed
+recyclable_folders = ["cardboard", "glass", "metal", "paper", "plastic"]  # adjust as needed
+not_recylable_folders = ["battery", "biological", "clothes", "shoes", "trash"]        # adjust as needed
 
 # Create binary folders
 os.makedirs(os.path.join(binary_dataset, "Recyclable"), exist_ok=True)
-os.makedirs(os.path.join(binary_dataset, "Not_Recylable"), exist_ok=True)
+os.makedirs(os.path.join(binary_dataset, "Not_Recyclable"), exist_ok=True)
 
 # Function to copy images
 def copy_images(src_folders, dst_folder):
@@ -20,14 +20,25 @@ def copy_images(src_folders, dst_folder):
         folder_path = os.path.join(original_dataset, folder)
         if not os.path.exists(folder_path):
             continue
-        for filename in os.listdir(folder_path):
-            if filename.endswith((".jpg", ".png", ".jpeg")):
-                shutil.copy(
-                    os.path.join(folder_path, filename),
-                    os.path.join(dst_folder, filename)
-                )
 
-copy_images(recyclable_folders, os.path.join(binary_dataset, "Recyclable"))
-copy_images(not_recylable_folders, os.path.join(binary_dataset, "Not_Recylable"))
+        for filename in os.listdir(folder_path):
+            if not filename.lower().endswith((".jpg", ".jpeg", ".png")):
+                continue
+
+            src = os.path.join(folder_path, filename)
+            dst = os.path.join(dst_folder, filename)
+
+            # If file exists, add suffix
+            if os.path.exists(dst):
+                name, ext = os.path.splitext(filename)
+                i = 1
+                while os.path.exists(os.path.join(dst_folder, f"{name}_{i}{ext}")):
+                    i += 1
+                dst = os.path.join(dst_folder, f"{name}_{i}{ext}")
+
+            shutil.copy(src, dst)
+
+
+copy_images(not_recylable_folders, os.path.join(binary_dataset, "Not_Recyclable"))
 
 print("Done! Binary dataset is ready.")
