@@ -1,0 +1,86 @@
+# =========================
+# OS / System files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Android / Gradle
+# =========================
+.gradle/
+build/
+*/build/
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# APK / AAB outputs
+*.apk
+*.aab
+
+# Native build
+.externalNativeBuild/
+.cxx/
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.env/
+.envrc/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# =========================
+# Machine Learning
+# =========================
+
+# DATASETS (CRITICAL — ignore big data)
+data/
+datasets/
+images/
+*.jpg
+*.jpeg
+*.png
+*.bmp
+
+# Training outputs
+logs/
+runs/
+checkpoints/
+*.h5
+*.ckpt
+*.pb
+*.tflite.tmp
+
+# TensorBoard
+events.out.tfevents.*
+
+# =========================
+# Models (IMPORTANT NOTE)
+# =========================
+
+# Ignore ALL models by default
+models/
+
+# BUT keep final deployed models
+!models/*.tflite
+
+# =========================
+# Misc
+# =========================
+*.log
+*.tmp
+*.swp
